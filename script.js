@@ -12,6 +12,31 @@ cancelNewTask.addEventListener("click", () => {
     form.classList.add("hidden");
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const dateRow = document.createElement("div");
+    dateRow.className = "habit-row";
+
+    const nameDiv = document.createElement("div");
+    nameDiv.className = "habit-name";
+    nameDiv.innerText = "Date";
+
+    const entriesDiv = document.createElement("div");
+    entriesDiv.className = "entry-container";
+
+    for (let i = 0; i <= 5; i++) {
+        const date = new Date().toString().split(" ").slice(1, 3).join(" ");
+
+        const entry = document.createElement("div");
+        entry.className = "entry";
+        entry.innerHTML = date;
+        entriesDiv.appendChild(entry);
+    }
+
+    dateRow.appendChild(nameDiv);
+    dateRow.appendChild(entriesDiv);
+    habitContainer.insertBefore(dateRow, habitContainer.firstChild);
+});
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     form.classList.add("hidden");
@@ -41,17 +66,14 @@ function addHabit(name, type, description) {
     const entriesDiv = document.createElement("div");
     entriesDiv.className = "entry-container";
 
-    const dateRow = document.createElement("div");
-    dateRow.className = "habit-row";
-
     for (let i = 0; i <= 5; i++) {
-        const date = new Date();
-        date.setDate(date.getDate());
-        // console.log(date);
-
         const entry = document.createElement("div");
         entry.className = "entry";
-        entry.innerHTML = "yes";
+        if (type === "yesno") {
+            entry.innerHTML = "yesno" ? "yes" : "no";
+        } else if (type === "measurable") {
+            entry.innerHTML = 10;
+        }
         entriesDiv.appendChild(entry);
     }
 
