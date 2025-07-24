@@ -12,38 +12,23 @@ cancelNewTask.addEventListener("click", () => {
     form.classList.add("hidden");
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const dateRow = document.createElement("div");
-    dateRow.className = "habit-row";
-
-    const nameDiv = document.createElement("div");
-    nameDiv.className = "habit-name";
-    nameDiv.innerText = "Date";
-
-    const entriesDiv = document.createElement("div");
-    entriesDiv.className = "entry-container";
-
-    for (let i = 0; i <= 5; i++) {
-        const date = new Date().toString().split(" ").slice(1, 3).join(" ");
-
-        const entry = document.createElement("div");
-        entry.className = "entry";
-        entry.innerHTML = date;
-        entriesDiv.appendChild(entry);
-    }
-
-    dateRow.appendChild(nameDiv);
-    dateRow.appendChild(entriesDiv);
-    habitContainer.insertBefore(dateRow, habitContainer.firstChild);
-});
+// const habit = {
+//     name: "Read Bible",
+//     type: "yesno",
+//     description: "Read 10 mins",
+//     entries: [
+//         { index: "1", date: "2025-07-24", value: "yes" },
+//         { index: "2", date: "2025-07-23", value: "no" },
+//     ],
+// };
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     form.classList.add("hidden");
 
     const formData = new FormData(form);
-
     const data = {};
+
     formData.forEach((value, key) => {
         data[key] = value;
     });
@@ -52,34 +37,21 @@ form.addEventListener("submit", (event) => {
         form.reset();
     }, 400);
 
-    addHabit(data["task-name"], data["type"], data["description"]);
+    const newHabit = {
+        name: data["task-name"],
+        type: data.type,
+        description: data.description,
+        entries: [],
+    };
 });
 
-function addHabit(name, type, description) {
-    const row = document.createElement("div");
-    row.className = "habit-row";
+function addHabitToArray() {}
 
-    const nameDiv = document.createElement("div");
-    nameDiv.className = "habit-name";
-    nameDiv.innerText = name;
-
-    const entriesDiv = document.createElement("div");
-    entriesDiv.className = "entry-container";
-
-    for (let i = 0; i <= 5; i++) {
-        const entry = document.createElement("div");
-        entry.className = "entry";
-        if (type === "yesno") {
-            entry.innerHTML = "yesno" ? "yes" : "no";
-        } else if (type === "measurable") {
-            entry.innerHTML = 10;
-        }
-        entriesDiv.appendChild(entry);
-    }
-
-    row.appendChild(nameDiv);
-    row.appendChild(entriesDiv);
-    habitContainer.appendChild(row);
+function renderHabits() {
+    habitContainer.innerHTML = "";
+    //rerender everything with each new entry or habits list modification
 }
 
-addHabit("Drink Water", "yesno", "8 glasses");
+function toggleYesNo(habitIndex, dayIndex) {}
+
+function setMeasurableValue(habitIndex, dayIndex, value) {}
