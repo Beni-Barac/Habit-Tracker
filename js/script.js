@@ -12,15 +12,9 @@ cancelNewTask.addEventListener("click", () => {
     form.classList.add("hidden");
 });
 
-// const habit = {
-//     name: "Read Bible",
-//     type: "yesno",
-//     description: "Read 10 mins",
-//     entries: [
-//         { index: "1", date: "2025-07-24", value: "yes" },
-//         { index: "2", date: "2025-07-23", value: "no" },
-//     ],
-// };
+document.addEventListener("DOMContentLoaded", () => {
+    renderDates();
+});
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -37,19 +31,15 @@ form.addEventListener("submit", (event) => {
         form.reset();
     }, 400);
 
-    const newHabit = {
-        name: data["task-name"],
-        type: data.type,
-        description: data.description,
-        entries: [],
-    };
+    addHabitToArray(data["task-name"], data.type, data.description);
+    renderHabits();
 });
-
-function addHabitToArray() {}
 
 function renderHabits() {
     habitContainer.innerHTML = "";
-    //rerender everything with each new entry or habits list modification
+    for (habit of habits) {
+        renderHabit(habit);
+    }
 }
 
 function toggleYesNo(habitIndex, dayIndex) {}

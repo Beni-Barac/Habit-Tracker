@@ -1,0 +1,21 @@
+#date-container {
+    background-color: hsl(240, 18%, 48%);
+    width: 1100px;
+    padding: 10px 20px;
+    border: 2px solid var(--e1);
+    margin: 0 auto;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#date-row {
+    color: #e6f5f1;
+    font-style: italic;
+    font-weight: bold;
+    border: none;
+}
+
+#date-style {
+    color: #ffffff;
+    letter-spacing: 2px;
+}
