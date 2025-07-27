@@ -27,10 +27,10 @@ function renderDates() {
     const entriesDiv = document.createElement("div");
     entriesDiv.className = "entry-container";
 
-    for (d of visibleDates()) {
+    for (date of visibleDates()) {
         const entry = document.createElement("div");
         entry.className = "entry";
-        entry.innerHTML = d;
+        entry.innerHTML = date;
         entriesDiv.appendChild(entry);
     }
 

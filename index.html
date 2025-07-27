@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="stylesheet" href="./css/date-container-styles.css" />
+        <link rel="stylesheet" href="./css/new-habit-form.css" />
+        <link rel="stylesheet" href="./css/habit-container.css" />
+        <title>Habit Tracker</title>
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/date-container-styles.css">
-    <link rel="stylesheet" href="./css/new-habit-form.css">
-    <link rel="stylesheet" href="./css/habit-container.css">
-    <title>Habit Tracker</title>
-</head>
-
-<body>
-    <div id="header">
-        <h1>Habit Tracker</h1>
-        <button id="add-task">Add Task</button>
-    </div>
-
-    <form class="hidden" id="new-task-form">
-        <div class="form-group">
-            <label for="task-name">Task name:</label>
-            <input type="text" id="task-name" name="task-name" style="font-size: 1.1rem;">
+    <body>
+        <div id="header">
+            <h1>Habit Tracker</h1>
+            <button id="add-task">Add Task</button>
         </div>
 
-        <div class="form-group">
-            <legend>Type:</legend>
-            <fieldset id="radio-group">
-                <label for="type">
-                    <input type="radio" value="yes/no" name="type""></input>
-                    Yes/No
-                </labeL>
-                <label for=" type">
-                    <input type="radio" value="measurable" name="type"></input>
-                    Measurable
-                </labeL>
-            </fieldset>
+        <form class="hidden" id="new-task-form">
+            <div class="form-group">
+                <label for="task-name">Task name:</label>
+                <input
+                    type="text"
+                    id="task-name"
+                    name="task-name"
+                    style="font-size: 1.1rem"
+                />
+            </div>
+
+            <div class="form-group">
+                <legend>Type:</legend>
+                <fieldset id="radio-group">
+                    <label for="type">
+                        <input type="radio" value="yes/no" name="type""> Yes/No
+                    </label>
+                    <label for=" type">
+                        <input type="radio" value="measurable" name="type" />
+                        Measurable
+                    </label>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Task description:</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    style="font-size: 1.1rem"
+                ></textarea>
+            </div>
+
+            <div id="new-task-buttons-group">
+                <button id="save-new-task" type="submit">Save</button>
+                <button id="cancel-new-task" type="button">Cancel</button>
+            </div>
+        </form>
+
+        <div id="date-container"></div>
+        <div id="date-navigation-buttons-container">
+            <button id="left-arrow">
+                <img src="assets/left-arrow.png" alt="Left Arrow" />
+            </button>
+            <button id="right-arrow">
+                <img src="assets/right-arrow.png" alt="Left Arrow" />
+            </button>
         </div>
+        <div id="habit-container"></div>
 
-        <div class="form-group">
-            <label for="description">Task description:</label>
-            <textarea id="description" name="description" style="font-size: 1.1rem"></textarea>
-        </div>
-
-        <div id="new-task-buttons-group">
-            <button id="save-new-task" type="submit">Save</button>
-            <button id="cancel-new-task" type="button">Cancel</button>
-        </div>
-    </form>
-
-    <div id="date-container">
-    </div>
-    <div id="habit-container">
-    </div>
-
-    <script src="./js/script.js"></script>
-    <script src="./js/habits-logic.js"></script>
-    <script src="./js/date-logic.js"></script>
-</body>
-
+        <script src="./js/script.js"></script>
+        <script src="./js/habits-logic.js"></script>
+        <script src="./js/date-logic.js"></script>
+    </body>
 </html>

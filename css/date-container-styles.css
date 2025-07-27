@@ -19,3 +19,13 @@
     color: #ffffff;
     letter-spacing: 2px;
 }
+
+#left-arrow {
+    display: inline;
+}
+
+#left-arrow img,
+#right-arrow img {
+    width: 20px;
+    height: 20px;
+}
