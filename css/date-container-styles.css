@@ -1,6 +1,7 @@
 #date-container {
+    position: sticky;
     background-color: hsl(240, 18%, 48%);
-    width: 1100px;
+    width: 100%;
     padding: 10px 20px;
     border: 2px solid var(--e1);
     margin: 0 auto;
@@ -20,8 +21,19 @@
     letter-spacing: 2px;
 }
 
-#left-arrow {
-    display: inline;
+#date-navigation-buttons-container {
+    position: sticky;
+    background-color: hsl(240, 18%, 48%);
+    align-self: end;
+    padding: 10px 15px;
+    border: 2px solid var(--e1);
+    border-radius: 10px;
+}
+
+#left-arrow,
+#right-arrow {
+    padding: 5px;
+    padding-bottom: 1px;
 }
 
 #left-arrow img,

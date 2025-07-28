@@ -1,4 +1,8 @@
 const dateContainer = document.getElementById("date-container");
+const prevDates = document.getElementById("left-arrow");
+const nextDates = document.getElementById("right-arrow");
+let count = 0;
+
 const month = [
     "Jan",
     "Feb",
@@ -15,6 +19,7 @@ const month = [
 ];
 
 function renderDates() {
+    dateContainer.innerHTML = "";
     const row = document.createElement("div");
     row.className = "habit-row";
     row.id = "date-row";
@@ -40,14 +45,24 @@ function renderDates() {
 }
 
 function visibleDates() {
-    let count = 0;
     const datesToRender = [];
-
+    let localCount = count;
     while (datesToRender.length < 7) {
         const newDate = new Date();
-        newDate.setDate(newDate.getDate() - count);
+        newDate.setDate(newDate.getDate() - localCount);
         datesToRender.push(`${month[newDate.getMonth()]} ${newDate.getDate()}`);
-        count = count + 1;
+        localCount = localCount + 1;
     }
     return datesToRender;
 }
+
+prevDates.addEventListener("click", () => {
+    if (count) count = count - 1;
+    else alert("Most recent date already loaded");
+    renderDates();
+});
+
+nextDates.addEventListener("click", () => {
+    count = count + 1;
+    renderDates();
+});
