@@ -31,10 +31,14 @@ function renderHabit(habit) {
     const entriesDiv = document.createElement("div");
     entriesDiv.className = "entry-container";
 
-    for (let i = 0; i < 7; i++) {
+    for (let index = 0; index < 7; index++) {
         const entry = document.createElement("div");
         entry.className = "entry";
         entry.innerHTML = "?";
+        entry.addEventListener("click", () => {
+            habit.entries.push(addEntry(index));
+            renderHabits();
+        });
         entriesDiv.appendChild(entry);
     }
 

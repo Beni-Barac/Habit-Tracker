@@ -1,5 +1,5 @@
 #date-container {
-    position: sticky;
+    position: static;
     background-color: hsl(240, 18%, 48%);
     width: 100%;
     padding: 10px 20px;
@@ -14,15 +14,44 @@
     font-style: italic;
     font-weight: bold;
     border: none;
+    display: flex;
+    justify-content: space-between;
+    flex-basis: auto;
+    gap: 10px;
+    width: 100%;
+    padding-left: 10px;
+    align-items: center;
 }
 
-#date-style {
+#date-name {
     color: #ffffff;
     letter-spacing: 2px;
+    font-size: 1.2rem;
+    flex: 4;
+    font-weight: bold;
+    color: var(--c4);
+}
+
+#date-entry-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex: 6;
+    align-items: center;
+}
+
+.date-entry {
+    font-size: 1rem;
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    color: var(--c4);
+    border-left: 1px solid var(--e1);
+    padding: 5px 20px;
 }
 
 #date-navigation-buttons-container {
-    position: sticky;
+    position: static;
     background-color: hsl(240, 18%, 48%);
     align-self: end;
     padding: 10px 15px;

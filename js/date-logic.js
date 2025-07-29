@@ -21,20 +21,18 @@ const month = [
 function renderDates() {
     dateContainer.innerHTML = "";
     const row = document.createElement("div");
-    row.className = "habit-row";
     row.id = "date-row";
 
     const nameDiv = document.createElement("div");
-    nameDiv.className = "habit-name";
-    nameDiv.id = "date-style";
+    nameDiv.id = "date-name";
     nameDiv.innerText = "";
 
     const entriesDiv = document.createElement("div");
-    entriesDiv.className = "entry-container";
+    entriesDiv.id = "date-entry-container";
 
     for (date of visibleDates()) {
         const entry = document.createElement("div");
-        entry.className = "entry";
+        entry.className = "date-entry";
         entry.innerHTML = date;
         entriesDiv.appendChild(entry);
     }
@@ -53,6 +51,8 @@ function visibleDates() {
         datesToRender.push(`${month[newDate.getMonth()]} ${newDate.getDate()}`);
         localCount = localCount + 1;
     }
+
+    currentDisplayedDates = datesToRender;
     return datesToRender;
 }
 

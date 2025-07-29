@@ -45,3 +45,10 @@
     border-left: 1px solid var(--e1);
     padding: 5px 20px;
 }
+
+.entry:hover {
+    font-style: italic;
+    font-weight: bold;
+    background-color: hsl(240, 17%, 48%);
+    transition: 300ms;
+}
