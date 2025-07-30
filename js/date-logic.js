@@ -60,9 +60,11 @@ prevDates.addEventListener("click", () => {
     if (count) count = count - 1;
     else alert("Most recent date already loaded");
     renderDates();
+    renderHabits();
 });
 
 nextDates.addEventListener("click", () => {
     count = count + 1;
     renderDates();
+    renderHabits();
 });

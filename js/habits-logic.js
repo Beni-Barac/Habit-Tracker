@@ -28,21 +28,33 @@ function renderHabit(habit) {
     nameDiv.className = "habit-name";
     nameDiv.innerText = habit.name;
 
-    const entriesDiv = document.createElement("div");
-    entriesDiv.className = "entry-container";
+    const entriesContainer = document.createElement("div");
+    entriesContainer.className = "entry-container";
 
     for (let index = 0; index < 7; index++) {
-        const entry = document.createElement("div");
-        entry.className = "entry";
-        entry.innerHTML = "?";
-        entry.addEventListener("click", () => {
+        // we have to display only 7 values
+        const entryDiv = document.createElement("div");
+        entryDiv.className = "entry";
+
+        let value = "?";
+        for (const entry of habit.entries) {
+            // here we are searching for the entry object within the habit.entries array which has the date property value
+            // the same as the date above the entry that we want to change (so basically making sure that we render the entry in the right place)
+            if (entry.date === currentDisplayedDates[index]) {
+                value = entry.value;
+                break;
+            }
+        }
+        entryDiv.innerHTML = value;
+
+        entryDiv.addEventListener("click", () => {
             habit.entries.push(addEntry(index));
             renderHabits();
         });
-        entriesDiv.appendChild(entry);
+        entriesContainer.appendChild(entryDiv);
     }
 
     row.appendChild(nameDiv);
-    row.appendChild(entriesDiv);
+    row.appendChild(entriesContainer);
     habitContainer.appendChild(row);
 }

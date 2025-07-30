@@ -1,5 +1,5 @@
 let currentDisplayedDates = [];
 
 function addEntry(index) {
-    return { index: "1", date: currentDisplayedDates[index], value: "yes" };
+    return { date: currentDisplayedDates[index], value: "yes" };
 }
