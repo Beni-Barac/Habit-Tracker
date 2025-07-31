@@ -17,9 +17,6 @@ let pendingIndex = null;
 
 function onEntryClick(index) {
     pendingIndex = index;
-    console.log(habit);
-    console.log(habit.type);
-
     yesNoForm.classList.remove("hidden");
 }
 

@@ -26,16 +26,23 @@
                     id="task-name"
                     name="task-name"
                     style="font-size: 1.1rem"
+                    required
                 />
             </div>
 
             <div class="form-group">
                 <legend>Type:</legend>
                 <fieldset class="radio-group">
-                    <label for="type">
-                        <input type="radio" value="yes/no" name="type" /> Yes/No
+                    <label>
+                        <input
+                            type="radio"
+                            value="yesno"
+                            name="type"
+                            required
+                        />
+                        Yes/No
                     </label>
-                    <label for=" type">
+                    <label>
                         <input type="radio" value="measurable" name="type" />
                         Measurable
                     </label>

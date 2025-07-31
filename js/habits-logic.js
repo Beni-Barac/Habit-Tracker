@@ -42,7 +42,6 @@ function renderHabit(habit) {
         entryDiv.addEventListener("click", () => {
             onEntryClick(index);
         });
-        console.log(habit);
         entriesContainer.appendChild(entryDiv);
     }
 
