@@ -8,10 +8,18 @@ cancelYesNo.addEventListener("click", () => {
     yesNoForm.classList.add("hidden");
 });
 
+cancelMeasurable.addEventListener("click", () => {
+    measurableForm.reset();
+    measurableForm.classList.add("hidden");
+});
+
 let pendingIndex = null;
 
 function onEntryClick(index) {
     pendingIndex = index;
+    console.log(habit);
+    console.log(habit.type);
+
     yesNoForm.classList.remove("hidden");
 }
 
@@ -23,9 +31,7 @@ yesNoForm.addEventListener("submit", (event) => {
     const value = formData.get("yes-no");
 
     const date = currentDisplayedDates[pendingIndex];
-    console.log(habit);
-    console.log(habit.entries);
-    habit.entries.push({ date, value });
+    habit.entries[date] = value;
 
     setTimeout(() => {
         form.reset();

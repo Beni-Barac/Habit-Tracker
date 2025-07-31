@@ -16,7 +16,7 @@ function addHabitToArray(name, type, description) {
         name: name,
         type: type,
         description: description,
-        entries: []
+        entries: {}
     });
 }
 
@@ -31,18 +31,13 @@ function renderHabit(habit) {
     const entriesContainer = document.createElement("div");
     entriesContainer.className = "entry-container";
 
-    const entryMap = {};
-    for (const entry of habit.entries) {
-        entryMap[entry.date] = entry.value;
-    }
-
     for (let index = 0; index < 7; index++) {
         // we have to display only 7 values
         const entryDiv = document.createElement("div");
         entryDiv.className = "entry";
 
         const date = currentDisplayedDates[index];
-        entryDiv.innerHTML = entryMap[date] || "?";
+        entryDiv.innerHTML = habit.entries[date] || "?";
 
         entryDiv.addEventListener("click", () => {
             onEntryClick(index);
