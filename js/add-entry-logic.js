@@ -1,5 +1,35 @@
-let currentDisplayedDates = [];
+const yesNoForm = document.getElementById("add-entry-yes-no-form");
+const measurableForm = document.getElementById("add-entry-measurable-form");
+const cancelYesNo = document.getElementById("cancel-yes-no");
+const cancelMeasurable = document.getElementById("cancel-measurable");
 
-function addEntry(index) {
-    return { date: currentDisplayedDates[index], value: "yes" };
+cancelYesNo.addEventListener("click", () => {
+    yesNoForm.reset();
+    yesNoForm.classList.add("hidden");
+});
+
+let pendingIndex = null;
+
+function onEntryClick(index) {
+    pendingIndex = index;
+    yesNoForm.classList.remove("hidden");
 }
+
+yesNoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    yesNoForm.classList.add("hidden");
+
+    const formData = new FormData(yesNoForm);
+    const value = formData.get("yes-no");
+
+    const date = currentDisplayedDates[pendingIndex];
+    console.log(habit);
+    console.log(habit.entries);
+    habit.entries.push({ date, value });
+
+    setTimeout(() => {
+        form.reset();
+    }, 400);
+
+    renderHabits();
+});

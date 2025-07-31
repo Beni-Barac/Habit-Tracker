@@ -45,9 +45,9 @@ function renderHabit(habit) {
         entryDiv.innerHTML = entryMap[date] || "?";
 
         entryDiv.addEventListener("click", () => {
-            habit.entries.push(addEntry(index));
-            renderHabits();
+            onEntryClick(index);
         });
+        console.log(habit);
         entriesContainer.appendChild(entryDiv);
     }
 

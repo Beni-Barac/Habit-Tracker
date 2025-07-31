@@ -2,6 +2,7 @@ const dateContainer = document.getElementById("date-container");
 const prevDates = document.getElementById("left-arrow");
 const nextDates = document.getElementById("right-arrow");
 let count = 0;
+let currentDisplayedDates = []; // this is populated each time visibleDates() changes
 
 const month = [
     "Jan",

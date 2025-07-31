@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="./css/date-container-styles.css" />
         <link rel="stylesheet" href="./css/new-habit-form.css" />
         <link rel="stylesheet" href="./css/habit-container.css" />
+        <link rel="stylesheet" href="./css/add-entry-forms.css" />
+        <link rel="stylesheet" href="./css/general-form-styles.css" />
         <title>Habit Tracker</title>
     </head>
 
@@ -29,9 +31,9 @@
 
             <div class="form-group">
                 <legend>Type:</legend>
-                <fieldset id="radio-group">
+                <fieldset class="radio-group">
                     <label for="type">
-                        <input type="radio" value="yes/no" name="type""> Yes/No
+                        <input type="radio" value="yes/no" name="type" /> Yes/No
                     </label>
                     <label for=" type">
                         <input type="radio" value="measurable" name="type" />
@@ -49,9 +51,45 @@
                 ></textarea>
             </div>
 
-            <div id="new-task-buttons-group">
-                <button id="save-new-task" type="submit">Save</button>
-                <button id="cancel-new-task" type="button">Cancel</button>
+            <div class="form-buttons-group">
+                <button id="save-task" class="save" type="submit">Save</button>
+                <button id="cancel-task" class="cancel" type="button">
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+        <form class="hidden" id="add-entry-yes-no-form">
+            <fieldset class="radio-group">
+                <label for="yes-no">
+                    <input type="radio" value="yes" name="yes-no" /> Yes
+                </label>
+                <label for="yes-no">
+                    <input type="radio" value="no" name="yes-no" /> No
+                </label>
+                <label for="yes-no">
+                    <input type="radio" value="?" name="yes-no" /> ?
+                </label>
+            </fieldset>
+            <div class="form-buttons-group">
+                <button id="save-yes-no" class="save" type="submit">
+                    Save
+                </button>
+                <button id="cancel-yes-no" class="cancel" type="button">
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+        <form class="hidden" id="add-entry-measurable-form">
+            <label for="measurable">Value: <input value="0" name="" /> </label>
+            <div class="form-buttons-group">
+                <button id="save-measurable" class="save" type="submit">
+                    Save
+                </button>
+                <button id="cancel-measurable" class="cancel" type="button">
+                    Cancel
+                </button>
             </div>
         </form>
 

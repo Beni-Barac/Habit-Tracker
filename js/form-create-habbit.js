@@ -1,4 +1,6 @@
 const form = document.getElementById("new-task-form");
+const addTask = document.getElementById("add-task");
+const cancelNewTask = document.getElementById("cancel-task");
 
 addTask.addEventListener("click", () => {
     form.classList.remove("hidden");
