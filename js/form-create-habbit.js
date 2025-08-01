@@ -11,6 +11,17 @@ cancelNewTask.addEventListener("click", () => {
     form.classList.add("hidden");
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const unitPopup = document.getElementById("unit-popup");
+
+    document.querySelectorAll('input[name="type"]').forEach((input) => {
+        input.addEventListener("change", () => {
+            const isMeasurable = input.value === "measurable";
+            unitPopup.classList.toggle("hidden", !isMeasurable);
+        });
+    });
+});
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     form.classList.add("hidden");

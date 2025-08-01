@@ -44,7 +44,10 @@
                     </label>
                     <label>
                         <input type="radio" value="measurable" name="type" />
-                        Measurable
+                        Measurable </label
+                    ><label id="unit-popup" class="hidden"
+                        >Unit:
+                        <input value="" name="unit" />
                     </label>
                 </fieldset>
             </div>
@@ -67,14 +70,14 @@
         </form>
 
         <form class="hidden" id="add-entry-yes-no-form">
-            <fieldset class="radio-group">
-                <label for="yes-no">
+            <fieldset id="entry-radio-group" class="radio-group">
+                <label>
                     <input type="radio" value="yes" name="yes-no" /> Yes
                 </label>
-                <label for="yes-no">
+                <label>
                     <input type="radio" value="no" name="yes-no" /> No
                 </label>
-                <label for="yes-no">
+                <label>
                     <input type="radio" value="?" name="yes-no" /> ?
                 </label>
             </fieldset>
@@ -89,7 +92,7 @@
         </form>
 
         <form class="hidden" id="add-entry-measurable-form">
-            <label for="measurable">Value: <input value="0" name="" /> </label>
+            <label>Value: <input value="0"" name="value" /> </label>
             <div class="form-buttons-group">
                 <button id="save-measurable" class="save" type="submit">
                     Save

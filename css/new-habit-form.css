@@ -23,6 +23,16 @@
     pointer-events: none; /* makes it unclickable when in hidden "mode" */
 }
 
+#unit-popup {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#unit-popup.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none; /* makes it unclickable when in hidden "mode" */
+}
+
 .form-group {
     display: flex;
     flex-direction: column;

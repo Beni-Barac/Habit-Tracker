@@ -6,18 +6,21 @@ const cancelMeasurable = document.getElementById("cancel-measurable");
 cancelYesNo.addEventListener("click", () => {
     yesNoForm.reset();
     yesNoForm.classList.add("hidden");
+    yesNoForm.reset();
 });
 
 cancelMeasurable.addEventListener("click", () => {
     measurableForm.reset();
     measurableForm.classList.add("hidden");
+    measurableForm.reset();
 });
 
 let pendingIndex = null;
 
 function onEntryClick(index) {
     pendingIndex = index;
-    yesNoForm.classList.remove("hidden");
+    if (habit.type === "yesno") yesNoForm.classList.remove("hidden");
+    else measurableForm.classList.remove("hidden");
 }
 
 yesNoForm.addEventListener("submit", (event) => {
@@ -31,7 +34,24 @@ yesNoForm.addEventListener("submit", (event) => {
     habit.entries[date] = value;
 
     setTimeout(() => {
-        form.reset();
+        yesNoForm.reset();
+    }, 400);
+
+    renderHabits();
+});
+
+measurableForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    measurableForm.classList.add("hidden");
+
+    const formData = new FormData(measurableForm);
+    const value = formData.get("value");
+
+    const date = currentDisplayedDates[pendingIndex];
+    habit.entries[date] = value;
+
+    setTimeout(() => {
+        measurableForm.reset();
     }, 400);
 
     renderHabits();
