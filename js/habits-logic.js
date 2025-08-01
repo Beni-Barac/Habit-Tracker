@@ -2,7 +2,6 @@
 //     name: "Read Bible",
 //     type: "yesno",
 //     description: "Read 10 mins",
-// TODO description: {value, unit}
 //     entries: [
 //         { index: "1", date: "2025-07-24", value: "yes" },
 //         { index: "2", date: "2025-07-23", value: "no" },
@@ -11,10 +10,11 @@
 
 let habits = [];
 
-function addHabitToArray(name, type, description) {
+function addHabitToArray(name, type, unit, description) {
     habits.push({
         name: name,
         type: type,
+        unit: unit,
         description: description,
         entries: {}
     });
@@ -37,7 +37,18 @@ function renderHabit(habit) {
         entryDiv.className = "entry";
 
         const date = currentDisplayedDates[index];
-        entryDiv.innerHTML = habit.entries[date] || "?";
+        const entryDivValue = document.createElement("div");
+        entryDivValue.className = "entry-value";
+        entryDivValue.innerHTML = habit.entries[date] || "?";
+
+        entryDiv.appendChild(entryDivValue);
+
+        if (habit.unit) {
+            const entryDivUnit = document.createElement("div");
+            entryDivUnit.className = "entry-unit";
+            entryDivUnit.innerHTML = habit.unit;
+            entryDiv.appendChild(entryDivUnit);
+        }
 
         entryDiv.addEventListener("click", () => {
             onEntryClick(index);

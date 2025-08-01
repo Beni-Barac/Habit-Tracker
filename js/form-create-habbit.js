@@ -1,6 +1,7 @@
 const form = document.getElementById("new-task-form");
 const addTask = document.getElementById("add-task");
 const cancelNewTask = document.getElementById("cancel-task");
+const unitPopup = document.getElementById("unit-popup");
 
 addTask.addEventListener("click", () => {
     form.classList.remove("hidden");
@@ -12,8 +13,6 @@ cancelNewTask.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const unitPopup = document.getElementById("unit-popup");
-
     document.querySelectorAll('input[name="type"]').forEach((input) => {
         input.addEventListener("change", () => {
             const isMeasurable = input.value === "measurable";
@@ -35,8 +34,9 @@ form.addEventListener("submit", (event) => {
 
     setTimeout(() => {
         form.reset();
+        unitPopup.classList.add("hidden");
     }, 400);
 
-    addHabitToArray(data["task-name"], data.type, data.description);
+    addHabitToArray(data["task-name"], data.type, data.unit, data.description);
     renderHabits();
 });
